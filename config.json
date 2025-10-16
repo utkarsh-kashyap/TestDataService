@@ -1,0 +1,12 @@
+{
+  "output_folder": "output",
+  "prompt_settings": {
+    "max_tokens": 1024,
+    "temperature": 0.0
+  },
+  "queries": {
+    "active_members": "-- SQL template for *single-member* active check or single-member candidate fetch.\n-- Use a placeholder {member_type} or {email_pattern} as needed.\n-- This template will be transformed by the LLM for batching (IN lists) by the framework.\n-- Example (Oracle):\n-- SELECT MEMBER_ID, USER_NO, EMAIL FROM MY_OWNER.MEMBER_MASTER WHERE MEMBER_TYPE = '{member_type}' AND EXIT_DATE IS NULL AND EMAIL LIKE '{email_pattern}' ORDER BY NVL(LAST_UPDATED, CREATED_DATE) DESC\n\nSELECT MEMBER_ID, USER_NO, EMAIL FROM ${OWNER}.${TABLE} WHERE MEMBER_TYPE = '{member_type}' AND EXIT_DATE IS NULL AND EMAIL LIKE '{email_pattern}' ORDER BY ${ORDER_BY}\n",
+    "registered_members": "-- SQL template to check registration for ONE member (single USER_NO placeholder {user_no}).\n-- LLM will be asked to convert to batch form (checking multiple user_no values); if LLM unavailable the framework will create an IN(...) variant.\n-- Example (Oracle):\n-- SELECT USER_NO FROM MY_OWNER.OKTA_USERS WHERE USER_NO = '{user_no}' AND REGISTERED_FLAG = 'Y'\n\nSELECT USER_NO FROM ${OKTA_OWNER}.${OKTA_TABLE} WHERE USER_NO = '{user_no}' AND ${OKTA_REGISTERED_FLAG_COL} = '{OKTA_REGISTERED_FLAG_VALUE}'\n",
+    "dwh_query": "-- DWH query template to fetch insurance or condition data for a single member id (placeholder {member_id}).\n-- LLM will be asked to transform to batch form (IN-list or join to temp table) and to use DWH schema.\n-- Example (T-SQL):\n-- SELECT MEMBER_ID, DEATH_COVER, TPD_COVER FROM MEMBER_DWH WHERE MEMBER_ID = {member_id}\n\nSELECT MEMBER_ID, DEATH_COVER, TPD_COVER FROM MEMBER_DWH WHERE MEMBER_ID = {member_id}\n"
+  }
+}

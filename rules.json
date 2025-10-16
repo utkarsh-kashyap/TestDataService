@@ -1,0 +1,47 @@
+{
+  "accum": {
+    "db_fund_pairs": [
+      {
+        "db_code": "ST000",
+        "fund_codes": ["ST100", "ST101", "ST200", "ST201"]
+      }
+    ],
+    "criteria": {
+      "basic_insurance": {
+        "description": "Member must have basic insurance coverage for both Death and TPD.",
+        "required_covers": ["Death", "TPD"],
+        "coverage_type": "Basic"
+      },
+      "additional_insurance": {
+        "description": "Member must have additional/voluntary insurance coverage for both Death and TPD.",
+        "required_covers": ["Death", "TPD"],
+        "coverage_type": "Additional"
+      },
+      "death_only": {
+        "description": "Member should have only Death cover in basic insurance.",
+        "required_covers": ["Death"],
+        "coverage_type": "Basic"
+      }
+    }
+  },
+  "pension": {
+    "db_fund_pairs": [
+      {
+        "db_code": "ST000",
+        "fund_codes": ["PT100", "2PT100"]
+      }
+    ],
+    "criteria": {
+      "basic_insurance": {
+        "description": "Member should have Death and TPD cover under pension plan.",
+        "required_covers": ["Death", "TPD"],
+        "coverage_type": "Basic"
+      },
+      "death_only": {
+        "description": "Member should have Death cover only.",
+        "required_covers": ["Death"],
+        "coverage_type": "Basic"
+      }
+    }
+  }
+}

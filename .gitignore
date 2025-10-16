@@ -1,0 +1,118 @@
+# =========================================
+# Ask-DB Framework Git Ignore
+# =========================================
+
+# ---- Python build / environment ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+*.envrc
+*.python-version
+
+# ---- Environment & secrets ----
+.env
+.env.*
+!.env.example      # keep the example template tracked
+*.key
+*.pem
+*.crt
+*.csr
+
+# ---- Logs / Debug / Cache ----
+*.log
+logs/
+debug.log
+nohup.out
+.DS_Store
+.cache/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+__MACOSX/
+
+# ---- Data & runtime outputs ----
+output/
+history/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# ---- Model / AI artifacts ----
+llm_context/
+*.embedding.json
+*.prompt_cache.json
+
+# ---- Test & Coverage ----
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+coverage.xml
+.cache/
+*.cover
+*.py,cover
+
+# ---- Local Config Files ----
+*.local.json
+*.config.json.bak
+
+# ---- Oracle / SQL artifacts ----
+*.sql
+*.dmp
+*.logon.sql
+*.sqlplus_history
+*.dbconfig.json
+
+# ---- OS / IDE / Misc ----
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+*.iml
+*.ipr
+*.iws
+
+# ---- Project specific ----
+# Keep example configs & schemas, ignore runtime generated
+schema/oracle_schema.json
+schema/dwh_schema.json
+!schema/
+!rules.json
+!config.json
+!README.md
+!requirements.txt
+!src/**
+
+# ---- Allure / Reports (if used later) ----
+allure-results/
+allure-report/
+
+# ---- Compressed / archives ----
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# ---- Local notes ----
+notes.txt
+todo.txt
