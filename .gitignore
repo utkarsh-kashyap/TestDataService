@@ -107,7 +107,6 @@ allure-results/
 allure-report/
 
 # ---- Compressed / archives ----
-*.zip
 *.tar
 *.tar.gz
 *.7z
